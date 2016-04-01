@@ -17,7 +17,7 @@
     <!-- endbuild -->
 
   </head>
-  <body ng-controller="MainCtrl">
+  <body >
 
 
 
@@ -27,7 +27,7 @@
 
     <!-- Add your site or application content here -->
 
-      <div class="navbar navbar-default" role="navigation">
+      <div class="navbar navbar-default"sticky role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -38,7 +38,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">peapodTest</a>
+            <a class="navbar-brand" href="#/">UserDirectory</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -54,7 +54,7 @@
 
 
     <div class="container">
-    <div ng-view=""></div>
+       <ng-view></ng-view>
     </div>
 
     <div class="footer">
@@ -91,9 +91,8 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-
+    <script src="bower_components/ngSticky/dist/sticky.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -101,7 +100,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-
 
         <!-- endbuild -->
 </body>

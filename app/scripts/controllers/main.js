@@ -7,9 +7,20 @@
  * # MainCtrl
  * Controller of the peapodTestApp
  */
-angular.module('peapodTestApp', ['ui.bootstrap']);
+ 
 angular.module('peapodTestApp')
-  .controller('MainCtrl', function ($scope,UserService) {
+  .controller('ModalInstanceCtrl',function($scope,$uibModalInstance,user){
+  	$scope.user = user;
+  $scope.ok = function () {
+    $uibModalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+  })
+
+  .controller('MainCtrl', function ($scope,UserService,$uibModal,$log) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,24 +31,27 @@ angular.module('peapodTestApp')
     $scope.users = UserService;
     $scope.animationsEnabled = true;
 
-    $scope.open = function(size){
-    	var modalInstance = $uibmodal.open({
-    		animation:$scope.animationsEnabled,
-    		templateUrl: 'myModalContent.html',
-    		controller:'modalInstanceCtrl',
-    		size:size,
-    		resolve:{
-    			items: function(){
-    				return $scope.users;
-    			}
-    		}
-    	});
+  $scope.open = function (UserService,size) {
 
-    	modalInstance.result.then(function(selectedUser){
-    		$scope.selected = selectedUser;
-    	})
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'views/modal.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        user: function () {
+          return $scope.user;
+        }
+      }
+    });
 
-    }
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
 
 	
   })
@@ -72,7 +86,7 @@ angular.module('peapodTestApp')
 
     },
 
-    "phone": "",
+    "phone": false,
 
     "website": "hildegard.org",
 
@@ -82,7 +96,9 @@ angular.module('peapodTestApp')
 
         "catchPhrase": "Multi­layered client­server neural­net",
 
-        "bs": "harness real­time e­markets"
+        "bs": "harness real­time e­markets",
+
+
 
     }
 

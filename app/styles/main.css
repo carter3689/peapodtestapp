@@ -11,6 +11,9 @@ body {
   padding: 0;
 }
 
+.special-header{
+  max-width: 100% !important;
+}
 
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -24,6 +27,7 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #F44336;
+  
   
   
 }

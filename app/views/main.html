@@ -1,12 +1,10 @@
 
-<md-scroll-shrink><header layout="row" layout-xs="column" class="header">
-  <h3 class="text-center">User Directory</h3>
+<md-scroll-shrink><header sticky layout="row" layout-xs="column" class="header">
+  <h3 class="text-center affix-top ">User Directory</h3>
 </header>
 </md-scroll-shrink>
-
-
-
-
+    
+    
 <div layout="row" layout-md="column">
 
 
@@ -14,8 +12,8 @@
       <md-card id="card" ng-repeat="user in users">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">{{user.username}}</span>
-
+            <span class="md-headline">{{user.name}}</span>
+            <span  class="glyphicon glyphicon-phone"></span>
             <span class="md-subhead">{{user.email}}</span>
           </md-card-title-text>
           <md-card-title-media>
@@ -26,7 +24,7 @@
         <button  ng-click="open()" class="btn btn-success">More Info</button>
         </md-card-actions>
       </md-card>
-      </div>
+    </div>
 
 
 
